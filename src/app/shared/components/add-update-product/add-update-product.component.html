@@ -1,0 +1,120 @@
+<app-header [isModal]="true" [title]="product ? 'Actualizar Productos' : 'Agregar Producto'"></app-header>
+<ion-content>
+
+
+    <form [formGroup]="form" class="ion-padding ion-text-center" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+        <!--Si existe una imagen-->
+        <ion-avatar *ngIf="form.value.image">
+            <img [src]="form.value.image" />
+        </ion-avatar>
+
+        <!--Si NO existe una imagen-->
+        <ion-icon class="image-icon" *ngIf="!form.value.image" name="image-outline"></ion-icon>
+
+
+        <br>
+        <!--Tomar o sleccionar una imagen-->
+        <ion-button (click)="takeImage()" mode="ios" size="small" shape="round">
+            Tomar/Seleccionar
+        </ion-button>
+        
+  
+        <!--Nombre-->
+  
+        <app-custom-input 
+        autocomplete="name"
+        [control]="form.controls.name"
+        type="text"
+        label="Nombre"
+        ></app-custom-input> <!--icono del formulario-->
+      
+      
+        <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched" >
+          <div *ngIf="form.controls.name.errors?.['required']" >Este campo  es requerido</div>
+          <div *ngIf="form.controls.name.errors?.['minlenght']" >El nombre debe tener al menos 4 caracteres</div>
+        </div>
+
+
+
+        <!--precio-->
+  
+        <app-custom-input 
+        [control]="form.controls.price"
+        type="number"
+        label="Precio"
+        (ionInput)="setNumberInputs()"
+        ></app-custom-input> <!--icono del formulario-->
+      
+      
+        <div class="validators" *ngIf="form.controls.price.errors && form.controls.price.touched" >
+          <div *ngIf="form.controls.price.errors?.['required']" >Este campo  es requerido</div>
+          <div *ngIf="form.controls.price.errors?.['min']" >El precio mínimo debe ser 0</div>
+        </div>
+
+
+
+
+        <!--unidades vendidas-->
+  
+        <app-custom-input 
+        [control]="form.controls.soldUnits"
+        type="number"
+        label="Unidades Vendidas"
+        (ionInput)="setNumberInputs()"
+        ></app-custom-input> <!--icono del formulario-->
+      
+      
+        <div class="validators" *ngIf="form.controls.soldUnits.errors && form.controls.soldUnits.touched" >
+          <div *ngIf="form.controls.soldUnits.errors?.['required']" >Este campo  es requerido</div>
+          <div *ngIf="form.controls.soldUnits.errors?.['min']" >La cantidad mínima debe ser 0</div>
+        </div>
+
+
+
+        <!-- Stock disponible -->
+        <app-custom-input 
+        [control]="form.controls.stockAvailable"
+        type="number"
+        label="Stock Disponible"
+        (ionInput)="setNumberInputs()"
+        ></app-custom-input>
+
+        <!-- Validators -->
+        <div class="validators" *ngIf="form.controls.stockAvailable.errors && form.controls.stockAvailable.touched">
+        <div *ngIf="form.controls.stockAvailable.errors?.['required']">Este campo es requerido</div>
+        <div *ngIf="form.controls.stockAvailable.errors?.['min']">La cantidad mínima debe ser 0</div>
+        </div>
+
+
+        <!-- Descuento -->
+        <app-custom-input 
+        [control]="form.controls.discount"
+        type="number"
+        label="Descuento (%)"
+        (ionInput)="setNumberInputs()"
+        ></app-custom-input>
+
+        <div class="validators" *ngIf="form.controls.discount.errors && form.controls.discount.touched">
+        <div *ngIf="form.controls.discount.errors?.['min']">El descuento mínimo es 0%</div>
+        <div *ngIf="form.controls.discount.errors?.['max']">El descuento máximo es 100%</div>
+        </div>
+
+  
+  
+  
+  
+  
+  
+        <ion-button mode="ios" class="ion-margin" type="submit" [disabled]="form.invalid">
+          {{product ? 'Actualizar Productos' : 'Agregar Producto'}}
+          <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
+        </ion-button>
+  
+  
+      
+      
+        </form>
+
+
+</ion-content>

@@ -1,0 +1,358 @@
+ion-card {
+  gap: 100px;
+  padding: 20px 0;
+  border-radius: 15px;
+}
+
+ion-content {
+  --padding-bottom: 70px;
+}
+
+.carta-gps {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+}
+
+.iframe-gps {
+  width: 330px;
+  height: 440px;
+}
+
+.scrollable-cart {
+  max-height: 200px; /* Establece la altura máxima según sea necesario */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.scrollable-cart-encargos {
+  max-height: 200px; /* Establece la altura máxima según sea necesario */
+  min-width: 200px;/* Establece la anchura minima según sea necesario */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.empty-icon {
+  font-size: 50px;
+  opacity: 30%;
+}
+
+//++++++++++++++++++ alert encargo ++++++++++++++++++
+ion-alert.custom-alert {
+  --backdrop-opacity: 0.7;
+}
+
+.custom-alert .alert-button-group {
+  padding: 8px;
+}
+
+button.alert-button.alert-button-confirm {
+  background-color: var(--ion-color-success);
+  color: var(--ion-color-success-contrast);
+}
+
+.md button.alert-button.alert-button-confirm {
+  border-radius: 4px;
+}
+
+.ios .custom-alert button.alert-button {
+  border: 0.55px solid rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.2);
+}
+
+.ios button.alert-button.alert-button-cancel {
+  border-right: 0;
+  border-bottom-left-radius: 13px;
+  border-top-left-radius: 13px;
+}
+
+.ios button.alert-button.alert-button-confirm {
+  border-bottom-right-radius: 13px;
+  border-top-right-radius: 13px;
+}
+
+// boton
+button {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: rgb(144, 169, 253);
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+
+//+++++++++++++++++++  metodo de pago +++++++++++++++++
+
+.payment-method-container {
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos al inicio y al final del contenedor */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 10px; /* Ajusta el padding según sea necesario */
+  width: 100%; /* Ajusta el ancho del contenedor */
+}
+
+.visa-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 300px;
+  height: 180px;
+  background-image: radial-gradient(
+    circle 897px at 9% 80.3%,
+    rgba(55, 60, 245, 1) 0%,
+    rgba(234, 161, 15, 0.9) 100.2%
+  );
+  border-radius: 10px;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  gap: 15px;
+}
+
+.logoContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px;
+}
+
+.svgLogo {
+  height: 40px;
+  width: auto;
+}
+
+.inputstyle::placeholder {
+  color: #ffffff;
+}
+
+.inputstyle {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  caret-color: red;
+  font-size: 13px;
+  height: 25px;
+  letter-spacing: 1.5px;
+}
+
+.number-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+#cardNumber {
+  width: 100%;
+  height: 25px;
+}
+
+.name-date-cvv-container {
+  width: 100%;
+  height: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+.name-wrapper {
+  width: 60%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.expiry-wrapper,
+.cvv-wrapper {
+  width: 30%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.cvv-wrapper {
+  width: 10%;
+}
+
+#expiry,
+#cvv {
+  width: 100%;
+}
+
+.input-label {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #e2e2e2;
+  width: 100%;
+}
+
+//+++++++++++++++++++  animacion camion +++++++++++++++++
+
+.loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truckWrapper {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
+}
+/* truck upper body */
+.truckBody {
+  width: 130px;
+  height: fit-content;
+  margin-bottom: 6px;
+  animation: motion 1s linear infinite;
+}
+/* truck suspension animation*/
+@keyframes motion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* truck's tires */
+.truckTires {
+  width: 130px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 15px;
+  position: absolute;
+  bottom: 0;
+}
+.truckTires svg {
+  width: 24px;
+}
+
+.road {
+  width: 100%;
+  height: 1.5px;
+  background-color: #282828;
+  position: relative;
+  bottom: 0;
+  align-self: flex-end;
+  border-radius: 3px;
+}
+.road::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: #282828;
+  right: -50%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 10px solid white;
+}
+.road::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: #282828;
+  right: -65%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 4px solid white;
+}
+
+.lampPost {
+  position: absolute;
+  bottom: 0;
+  right: -90%;
+  height: 90px;
+  animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-350px);
+  }
+}

@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border"> <!--Sacar la sombra al header-->
+  <ion-toolbar color="primary"><!--Color primario al header-->
+
+
+
+    <ion-buttons slot="start">
+
+    <!--Back button-->
+      <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
+    <!--Dismiss modal-->
+
+    <ion-button (click)="dissmissModal()" *ngIf="isModal">
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-button>
+
+
+    <ion-menu-button *ngIf="showMenu" menu="menu-content"></ion-menu-button>
+
+    </ion-buttons>
+
+
+
+    <ion-title>
+      <strong>{{title}}</strong>
+      <div class="admin">PetShop</div>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
